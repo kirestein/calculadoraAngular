@@ -36,5 +36,11 @@ describe('CalculadoraService', () => {
   inject([CalculadoraService], (service:CalculadoraService) => {
     let divisao = service.calcular(1, 4,  CalculadoraService.DIVISAO);
     expect(divisao).toEqual(0.25);
-  }))
+  }));
+
+  it('deve retornar 0 para uma operação inválida',
+  inject([CalculadoraService], (service:CalculadoraService) => {
+    let operacaoInvalida = service.calcular(1, 4, '%');
+    expect(operacaoInvalida).toEqual(0);
+  }));
 });
